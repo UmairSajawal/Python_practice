@@ -95,7 +95,7 @@ print("OR operator is :", (a == b) or (a > b))
 """
 
 # Type Convertion (convert datatype to another datatype)
-
+"""
 '''
  Two types of conversion : 1.conversion and 2.casting
  1.conversion: python automatically converts to true datatype
@@ -133,3 +133,31 @@ print(sum)     #Output is: 5.25
 a = 4.25
 a = str(a)     #Convert float to string manually
 print(type(a))
+"""
+
+# input(): this function is used in python to  get input from user
+# Note: results for input() is always a str. If you want to change you use int() or float()
+"""
+input("enter your identity:")
+
+name = input("Enter your full name :")
+print("Welcome : ", name)
+
+age = input("Enter your age: ")
+print("You enter your age is : ", age)
+print(type(age))  #string. if you want to convert in int, so you write:
+
+age = int(input("Enter your age: "))
+print("You enter your age is : ", age)
+print(type(age)) #int. now the datatype is int.
+
+name = input("Enter your name: ")
+age = int(input("Enter your age :"))
+marks = float(input("Enter your marks :"))
+print("Your name is :", name)
+print(type(name))
+print("Your age is :", age)
+print(type(age))
+print("Your marks is :", marks)
+print(type(marks))
+"""
