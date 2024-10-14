@@ -104,3 +104,60 @@ def even_odd(n):
 
 even_odd(2)
 '''
+
+# Recursion
+#When a function calls itself repeatedly. 
+#prints n to 1 backwards
+"""
+def show(n):      #recursive function
+    if(n == 0):   #Base case  #decide to stops recursion
+        return
+    print(n)
+    show(n-1)
+show(5)
+'''Output:
+5
+4
+3
+2
+1
+'''
+#returns n!
+'''
+4! = 1 * 2 * 3 * 4  = 3! * 4
+3! = 1 * 2 * 3 = 2! * 3
+2! = 1 * 2
+1! = 1
+0! = 1
+n! = (n-1)! * n   #recurance relation
+fact(n) = fact(n-1) * n
+fact(n-2) = fact(n-2) * (n-1)
+'''
+def fact(n):
+    if(n == 1 or n == 0):
+        return 1
+    return fact(n-1) * n     #Base case  #decide to stops recursion
+
+print(fact(5)) #Output: 120
+"""
+# Practice set:
+#Write a recursive function to calculate the sum of first n natural numbers. 
+'''
+def cal_summ(n):
+    if(n == 0):
+        return 0
+    return cal_summ(n-1) + n
+sum = cal_summ(5)
+print(sum)
+
+#Write a recursive function to print all elements in a list.
+#Hint : use list & index as parameters.
+def print_list(list, idx=0):
+    if(idx == len(list)):
+        return
+    print(list[idx])
+    print_list(list, idx+1)
+
+fruits = ["mangoes", "bananas", "peaches", "guavas"]
+print_list(fruits)
+'''
