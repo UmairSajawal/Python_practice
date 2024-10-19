@@ -177,3 +177,53 @@ s1.college()  #Output:  ABCD College
 # Important:
 #Abstraction
 ''' Hiding the implementation details of a class and only showing the essential features to the user '''
+"""
+class Car:
+    def __init__(self):
+        self.acc = False
+        self.brk = False
+        self.clutch = False
+
+    def start(self):
+        self.clutch = True
+        self.brk = True
+        print("Car started...")
+car1 = Car()
+car1.start()
+'''Output:
+Car started...
+#The output is "Car started..." this is abstarction because it hides all proccess osf brakr, clutch and accelator.
+'''
+"""
+#Encapsulation
+'''Wrapping data and functions into a single unit (object)'''
+
+
+# Let‘s Practice
+#Create Account class with 2 attributes - balance & account no.
+#Create methods for debit, credit & printing the balance.
+"""
+class Account:
+    def __init__(self, bal, acc):
+        self.balance = bal
+        self.account_no = acc
+    
+    def debit(self, amount):
+        self.balance -= amount
+        print("Rs.", amount, "was debited")
+        print("Your total remaining amount = ", self.get_balance())
+
+    def credit(self, amount):
+        self.balance += amount
+        print("Rs.", amount, "was credited")
+        print("Your total remaining amount = ", self.get_balance())
+    
+    def get_balance(self):
+        return self.balance
+
+acc1 = Account(10000, 124556455)
+acc1.debit(1000)
+acc1.debit(1000)
+acc1.credit(45000)
+acc1.debit(3000)
+"""
