@@ -61,9 +61,12 @@ class
 '''
 # Types Of Inheritance
 '''
-1. Single Inheritance        #base class -> derived class   #like previous example or car 
-2. Multi-level Inheritance   #base(parent class) -> derived(child class + parent class) -> derived(child class)
-3. Multiple Inheritance
+1. Single Inheritance:        #base class -> derived class   #like previous example or car 
+2. Multi-level Inheritance:   #base(parent class) -> derived(child class + parent class) -> derived(child class)
+3. Multiple Inheritance:
+# base(parent class)  base(parent class)
+                     |
+            drived(child class)
 '''
 
 """
@@ -93,6 +96,7 @@ print(car1.stop())  #Output : Car stopped...
 """
 
 #2. Multi-level Inheritance:
+"""
 class Car:
     @staticmethod
     def start():
@@ -112,3 +116,118 @@ class Fortuner(ToyotaCar):
 
 car1 = Fortuner("Petrol")
 car1.start()
+"""
+
+#3. Multiple Inheritance:
+"""
+class A:
+    varA = "This is class A"
+
+class B:
+    varB = "This is class B"
+
+class C(A, B):
+    varC = "This is class C"
+
+c1 = C()
+print(c1.varC)  #Output : This is class C
+print(c1.varB)  #Output : This is class B
+print(c1.varA)  #Output : This is class A
+"""
+
+# Super Method
+''' super() method is used to access methods of the parent class '''
+"""
+class Car:
+    def __init__(self, car_type):
+        self.car_type = car_type
+    @staticmethod
+    def start():
+        print("Car started...")
+    
+    @staticmethod
+    def stop():
+        print("Car stopped...")
+    
+class ToyotaCar(Car):    #this class is inherited to the previous class "Car". So all things in class Car are accessible for new class "ToyotaCar(car)"
+    def __init__(self, name, car_type):
+        super().__init__(car_type)
+        self.name = name
+        super().start()
+
+car1 = ToyotaCar("prius", "electric")
+print(car1.car_type)  #Output : electric
+print(car1.start)     #Output : Car started...
+"""
+
+# Class Method
+''' 
+A class method is bound to the class and recieves the class as an implicit first argument.
+Note : static method not access or modify class state & generally for utility.
+
+class Student:
+    @classmethod    #decorator
+    def college(cls):
+        pass
+'''
+"""
+class Person:
+    name = "anomynous"
+    
+    #def changeName(self, name):
+       # Person.name = name                   #this 1st way 
+       # self.__class__.name = "Shahaan"      #this 2nd way
+    
+    @classmethod
+    def changeName(cls, name):
+        cls.name = name
+
+p1 = Person()
+p1.changeName("Shahaan")
+print(p1.name)      #Output : Shahaan
+print(Person.name)  #Output : Shahaan
+"""
+
+# Property
+''' We use property decorator on any method in the class to use the method as a property '''
+'''
+class Student:
+    def __init__(self, phy, chem, math):
+        self.phy = phy
+        self.chem = chem
+        self.math = math
+        self.percentage = str((self.phy+self.chem+self.math)/3) + "%"
+stu1 = Student(99, 97, 98)
+print(stu1.percentage)
+
+#now if change phy marks, it changes successfully
+stu1.phy = 86
+print(stu1.phy) #Output: 86
+#but percentage not change it remain same
+print(stu1.percentage)
+
+
+#so avoid to this situation, when change marks percentage also changes we use @propert decorator:
+'''
+"""
+class Student:
+    def __init__(self, phy, chem, math):
+        self.phy = phy
+        self.chem = chem
+        self.math = math
+        
+
+    @property
+    def percentage(self):
+        return str((self.phy+self.chem+self.math)/3) + "%"
+
+
+stu1 = Student(99, 97, 98)
+print(stu1.percentage)   #Output : 98.0%
+
+stu1.phy = 86
+print(stu1.phy)          #Output: 86
+print(stu1.percentage)   #Output: 93.66666666666667%
+
+#now when changed marks the percentage automatically changes
+"""
