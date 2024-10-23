@@ -230,4 +230,65 @@ print(stu1.phy)          #Output: 86
 print(stu1.percentage)   #Output: 93.66666666666667%
 
 #now when changed marks the percentage automatically changes
+
+#read and practice @getter and @setter decorator
 """
+
+
+# Polymorphism : Operator Overloading
+'''
+When same operator is allowed to have different meaning according to the conext.
+
+Operators & Dunder functions:
+a+b  #addition             a.__add__(b)
+a-b  #subtraction          a.__sub__(b)
+a*b  #multiplication       a.__mul____(b)
+a/b  #division             a.__truediv____(b)
+a%b  #remainder            a.__mod__(b)
+'''
+'''
+# operator(+)
+print(1 + 2)  #3
+print("2" + "3") #23
+print("umair" + "sajawal")    #concatenate  #umairsajawal 
+print([1, 2, 3] + [4, 5, 6])  #merge        #[1, 2, 3, 4, 5, 6]
+'''
+''' 
+complex number like : 3i + 4j
+3i is real part
+4j is imaginary part
+'''
+#make your own class:
+class Complex:
+    def __init__(self, real, img):
+        self.real = real
+        self.img = img
+    
+    def printNumber(self):
+        print(self.real,"i +", self.img,"j")
+
+    #now i want to add num1 and num2 so use dunder (__) function:
+    def __add__(self, num2):
+        newReal = self.real + num2.real
+        newImg = self.img + num2.img
+        return Complex(newReal, newImg)
+    
+    #now i want to subtract num1 and num2 so use dunder (__) function:
+    def __sub__(self, num2):
+        newReal = self.real - num2.real
+        newImg = self.img + num2.img
+        return Complex(newReal, newImg)
+
+num1 = Complex(1, 3)
+print(num1.printNumber())  #Output : 1 i + 3 j
+
+num2 = Complex(4, 6)
+print(num2.printNumber())  #Output : 4 i + 6 j
+
+num3 = num1 + num2
+print(num3.printNumber())  #Output : 5 i + 9 j
+
+num4 = num1 - num2
+print(num4.printNumber())  #Output : -3 i + 9 j
+
+#for read more dundent functions visit "doc.python.org"
